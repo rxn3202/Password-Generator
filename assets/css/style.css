@@ -1,9 +1,11 @@
+/* Reset default box sizing for all elements and their pseudo elements */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Set height, margin, and padding to 0 for html, body, wrapper elements */
 html,
 body,
 .wrapper {
@@ -12,17 +14,20 @@ body,
   padding: 0;
 }
 
+/* Set font family and backgroud color for body element */
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
 }
 
+/* Add padding to wrapper element */
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+/* Center align text and add padding for header element */
 header {
   text-align: center;
   padding: 20px;
@@ -30,6 +35,7 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/* Style for card element */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -42,6 +48,7 @@ header {
   padding: 30px 40px;
 }
 
+/* Add horizontal line after card header */
 .card-header::after {
   content: " ";
   display: block;
@@ -50,14 +57,17 @@ header {
   height: 2px;
 }
 
+/* Set minimum height for card body element */
 .card-body {
   min-height: 100px;
 }
 
+/* Style for card footer element */
 .card-footer {
   text-align: center;
 }
 
+/* Add horizontal line before card footer */
 .card-footer::before {
   content: " ";
   display: block;
@@ -66,12 +76,14 @@ header {
   height: 2px;
 }
 
+/* Add clearfix after card footer */
 .card-footer::after {
   content: " ";
   display: block;
   clear: both;
 }
 
+/* Style for button element */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -88,15 +100,18 @@ header {
   cursor: pointer;
 }
 
+/* Style for disabled button */
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
 }
 
+/* Float element to right */
 .float-right {
   float: right;
 }
 
+/* Style for password input element */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -118,20 +133,22 @@ button[disabled] {
   overflow: hidden;
 }
 
+/* Media query for screens with a maximum width of 690pm */
 @media (max-width: 690px) {
   .btn {
-    font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px;
+    font-size: 1rem; /* Font size of 1rem for .btn */
+    margin: 16px 0px 0px 0px; /* Margin of 16px on top for .btn */
+    padding: 10px 15px; /* Padding of 10px on top and bottom, and 15px on left and right for .btn */
   }
 
   #password {
-    font-size: 1rem;
+    font-size: 1rem; /* Font size of 1rem for password */
   }
 }
 
+/* Media query for screens with a maximum width of 500px */
 @media (max-width: 500px) {
   .btn {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Font size of 0.8rem for .btn */
   }
 }
