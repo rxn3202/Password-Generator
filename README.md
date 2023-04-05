@@ -28,4 +28,13 @@ THEN the password is either displayed in an alert or written to the page
 ## Mock-Up
 Please view live URL: [Password-Generator](https://rxn3202.github.io/Password-Generator)
 
+- When user clokcs on the "Generate Password" button, they will be prompted with a series or questions, including:
+    - The desired size of the password (between 8 to 128 characters)
+    - Do they want lowercase letters
+    - Do they want uppercase letters
+    - Do they want numeric characters
+    - Do they want special characters
+- User's input will be validated to ensure that size is within the allowed range and at least one character set has been selected.
+- After validation, a random password will be generated based on the provided criteria in the text box displayed on the web page. 
+
 ![alt text](assets/images/Screenshot.png)
