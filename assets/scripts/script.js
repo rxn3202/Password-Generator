@@ -34,39 +34,50 @@ function generatePassword() {
   var useNumeric = validateInput("Should the password contain numbers? Type 'Y' yes or 'N' for no.");
   var useSpecialCharacters = validateInput("Should the password contain special characters? Type 'Y' yes or 'N' for no.");
 
-  if (!useLowercase && !useUppercase && !useNumeric && !useSpecialCharacters) {
-    return '';
+ 
+
+  
+  var userInput = confirm("Would you like to continue with the following password characters? \n\nPassord Length: " + passwordLength + "\nLower Case: " + useLowercase + "\nUpper Case: " + useUppercase + "\nSymbols: "+ useSpecialCharacters + "\nNumbers: " + useNumeric +"\n\nYes - Press OK \nNo - Press Cancel ");
+  if(userInput == true)
+  {
+    if (!useLowercase && !useUppercase && !useNumeric && !useSpecialCharacters) {
+      return '';
+    }
+  
+    // Generate the password using the selected character types
+    while (generatedPassword.length < passwordLength) {
+      // Lowercase character
+      if (useLowercase) {
+        generatedPassword += lowercaseCharacters[Math.floor(Math.random() * lowercaseCharacters.length)];
+      }
+      // Uppercase character
+      if (useUppercase) {
+        generatedPassword += uppercaseCharacters[Math.floor(Math.random() * uppercaseCharacters.length)];
+      }
+      // Numeric character
+      if (useNumeric) {
+        generatedPassword += numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+      }
+      // Special character
+      if (useSpecialCharacters) {
+        generatedPassword += specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+      }
+    }
+  
+    // Return the generated password, limited to the password length
+    return generatedPassword.slice(0, passwordLength);
   }
 
-  // Generate the password using the selected character types
-  while (generatedPassword.length < passwordLength) {
-    // Lowercase character
-    if (useLowercase) {
-      generatedPassword += lowercaseCharacters[Math.floor(Math.random() * lowercaseCharacters.length)];
-    }
-    // Uppercase character
-    if (useUppercase) {
-      generatedPassword += uppercaseCharacters[Math.floor(Math.random() * uppercaseCharacters.length)];
-    }
-    // Numeric character
-    if (useNumeric) {
-      generatedPassword += numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-    }
-    // Special character
-    if (useSpecialCharacters) {
-      generatedPassword += specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-    }
-  }
-
-  // Return the generated password, limited to the password length
-  return generatedPassword.slice(0, passwordLength);
+ 
 }
 
 // Function to write the generated password to the DOM
 function writePassword() {
   var password = generatePassword();
+  if (password != undefined){
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+  }
 }
 
 // Add event listener to the generate button to call the writePassword function when clicked
